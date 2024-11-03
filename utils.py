@@ -25,7 +25,7 @@ def join_data(qualtrics_data, devpost_data):
 
     judging_data.drop('Team_y', axis=1, inplace=True)
 
-    judging_data = judging_data.loc[:,["ID", "Team", "Track", "Judge", "Technical", "Novelty", "Viability"]].sort_values(by="ID").reset_index(drop=True)
+    judging_data = judging_data.loc[:,["ID", "Team", "Track", "Judge", "Technical", "Novelty", "Viability", "Opt-In Prize"]].sort_values(by="ID").reset_index(drop=True)
 
     judging_data["Technical"] = judging_data["Technical"].astype(float)
     judging_data["Novelty"] = judging_data["Novelty"].astype(float)
@@ -112,6 +112,8 @@ def process_hackathon_results(file_path, top_n=3):
     
     # Average normalized scores by team
     avg_scores = average_team_scores(norm_df)
+
+    print(avg_scores)
 
     print("Averaged scores DataFrame shape:", avg_scores.shape)
     
