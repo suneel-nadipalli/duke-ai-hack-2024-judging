@@ -5,10 +5,10 @@ def join_data(qualtrics_data, devpost_data):
 
     qualtrics_data = qualtrics_data.iloc[:, -5:].iloc[2:]
 
-    qualtrics_data["Team"] = qualtrics_data.apply(lambda x: x["Q8"].split(" | ")[-1].strip(), axis=1)
-    qualtrics_data["ID"] = qualtrics_data.apply(lambda x: x["Q8"].split(" | ")[0].strip(), axis=1).astype(int)
+    qualtrics_data["Team"] = qualtrics_data.apply(lambda x: x["Q10"].split(" | ")[-1].strip(), axis=1)
+    qualtrics_data["ID"] = qualtrics_data.apply(lambda x: x["Q10"].split(" | ")[0].strip(), axis=1).astype(int)
 
-    qualtrics_data.drop('Q8', axis=1, inplace=True)
+    qualtrics_data.drop('Q10', axis=1, inplace=True)
 
     qualtrics_data.rename(columns=
                         {'Name': 'Judge', 
